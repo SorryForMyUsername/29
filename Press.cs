@@ -12,9 +12,33 @@ namespace ConsoleApp2
         string name;
         decimal price;
 
-        public int Copies { get => copies; set => copies = value; }
-        public string Name { get => name; set => name = value; }
-        public decimal Price { get => price; set => price = value; }
+        public int Copies
+        {
+            get { return copies; }
+            set
+            {
+                if(value < 0) copies = 0;
+                else copies = value;
+            }
+        }
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if(String.IsNullOrEmpty(value)) name = "Неизвестно";
+                else name = value;
+            }
+        }
+        public decimal Price
+        {
+            get { return price; }
+            set
+            {
+                if(value < 0) price = 0;
+                else price = value;
+            }
+        }
 
         public Press() { }
 
